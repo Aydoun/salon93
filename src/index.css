@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: gray !important;
 }
 
 code {
@@ -34,5 +35,5 @@ code {
   padding: 24px;
   background-color: white;
   margin-left: 8px;
-  height: calc(100vh - 166px);
+  min-height: calc(100vh - 166px);
 }

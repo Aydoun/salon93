@@ -24,7 +24,7 @@ const Main = () => {
       </Header>
       <Content style={{ padding: "24px" }}>
         <Layout
-          className="site-layout-background"
+          // className="site-layout-background"
           style={{ padding: "24px 0" }}
         >
           <Sider className="site-layout-background" width={200}>
