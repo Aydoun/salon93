@@ -14,7 +14,7 @@ const sessions = (
 ) => {
   switch (action.type) {
     case GET_SESSIONS:
-      return [...state.sessions, action.payload];
+      return action.payload;
 
     default:
       return state;

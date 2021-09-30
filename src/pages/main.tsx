@@ -38,16 +38,16 @@ const Main = () => {
                 <Link to="/">Home</Link>
               </Menu.Item>
               <Menu.Item icon={<WomanOutlined />} key="2">
-                <Link to="/sessions"> Sessions</Link>
+                <Link to="/sessions">Sessions</Link>
               </Menu.Item>
               <Menu.Item icon={<DollarOutlined />} key="3">
-                Fiancials
+                <Link to="/income">Omzet</Link>
               </Menu.Item>
               <Menu.Item icon={<SnippetsOutlined />} key="4">
-                Tax
+                <Link to="/tax">Tax</Link>
               </Menu.Item>
               <Menu.Item icon={<SolutionOutlined />} key="5">
-                Presence
+                <Link to="/presence">Presence</Link>
               </Menu.Item>
               <Menu.Item icon={<SettingOutlined />} key="6">
                 Management
