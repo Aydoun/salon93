@@ -8,6 +8,8 @@ import {
   SettingOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
+import { Link } from "react-router-dom";
+import AppRouter from "../routes";
 const { Header, Content, Sider } = Layout;
 const { Text } = Typography;
 
@@ -33,10 +35,10 @@ const Main = () => {
               style={{ height: "100%" }}
             >
               <Menu.Item icon={<HomeOutlined />} key="1">
-                Home
+                <Link to="/">Home</Link>
               </Menu.Item>
               <Menu.Item icon={<WomanOutlined />} key="2">
-                Sessions
+                <Link to="/sessions"> Sessions</Link>
               </Menu.Item>
               <Menu.Item icon={<DollarOutlined />} key="3">
                 Fiancials
@@ -55,7 +57,9 @@ const Main = () => {
               </Menu.Item>
             </Menu>
           </Sider>
-          <Content className="app-content">Content</Content>
+          <Content className="app-content">
+            <AppRouter />
+          </Content>
         </Layout>
       </Content>
     </Layout>
