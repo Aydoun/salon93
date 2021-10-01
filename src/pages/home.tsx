@@ -7,6 +7,7 @@ import {
   DatePicker,
   Divider,
   Row,
+  Statistic,
   Table,
   Typography,
 } from "antd";
@@ -15,6 +16,9 @@ import {
   KeyOutlined,
   ClockCircleOutlined,
   PrinterOutlined,
+  EuroCircleOutlined,
+  CreditCardOutlined,
+  AuditOutlined,
 } from "@ant-design/icons";
 import { useMemo } from "react";
 import moment from "moment";
@@ -128,6 +132,29 @@ function Home() {
               </Col>
             );
           })}
+      </Row>
+      <Divider />
+      <Title className="top-margin" level={3}>
+        DagStaat
+      </Title>
+      <Row gutter={16}>
+        <Col span={6}>
+          <Statistic
+            title="Cash Total"
+            prefix={<EuroCircleOutlined />}
+            value={1200}
+          />
+        </Col>
+        <Col span={6}>
+          <Statistic
+            title="Pin Total"
+            prefix={<CreditCardOutlined />}
+            value={500}
+          />
+        </Col>
+        <Col span={6}>
+          <Statistic title="Total" prefix={<AuditOutlined />} value={700} />
+        </Col>
       </Row>
       <Divider />
       <Title className="top-margin" level={3}>

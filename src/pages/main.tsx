@@ -4,7 +4,6 @@ import {
   WomanOutlined,
   DollarOutlined,
   SnippetsOutlined,
-  SolutionOutlined,
   SettingOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";

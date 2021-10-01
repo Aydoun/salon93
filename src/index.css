@@ -38,6 +38,12 @@ code {
   min-height: calc(100vh - 166px);
 }
 
+.login-form {
+  margin: 80px auto !important;
+  padding: 50px !important;
+  width: 33%;
+}
+
 .top-margin {
   margin-top: 1em;
 }

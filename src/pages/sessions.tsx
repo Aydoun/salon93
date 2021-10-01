@@ -62,7 +62,7 @@ const columns = [
   {
     title: "Action",
     key: "action",
-    render: () => <a>view session</a>,
+    render: () => <Link to="/sessions">view session</Link>,
   },
 ];
 

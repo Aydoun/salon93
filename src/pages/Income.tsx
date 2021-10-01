@@ -3,13 +3,12 @@ import {
   Col,
   Typography,
   DatePicker,
-  Space,
   Table,
   Statistic,
   Card,
   Button,
 } from "antd";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getIncomeAction } from "../redux/action/sessions";
 import {
   EuroCircleOutlined,
@@ -19,6 +18,7 @@ import {
 } from "@ant-design/icons";
 import { formatDate } from "src/utils/helpers";
 import moment from "moment";
+
 const { Title } = Typography;
 
 const columns = [
@@ -26,7 +26,7 @@ const columns = [
     title: "Name",
     dataIndex: "workerName",
     key: "name",
-    render: (text: any) => <a>{text}</a>,
+    render: (text: any) => text,
   },
   {
     title: "Start Time",
@@ -53,11 +53,7 @@ const columns = [
   {
     title: "Action",
     key: "action",
-    render: () => (
-      <Space size="middle">
-        <a>view session</a>
-      </Space>
-    ),
+    render: () => <Link to="/income">view session</Link>,
   },
 ];
 
