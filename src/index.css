@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: gray !important;
+  background: #f0f2f5 !important;
 }
 
 code {
@@ -36,4 +36,24 @@ code {
   background-color: white;
   margin-left: 8px;
   min-height: calc(100vh - 166px);
+}
+
+.top-margin {
+  margin-top: 1em;
+}
+
+.right-margin {
+  margin-right: 1em;
+}
+
+.left-margin {
+  margin-left: 1em;
+}
+
+.bottom-margin {
+  margin-bottom: 1em;
+}
+
+.float-right {
+  float: right;
 }
