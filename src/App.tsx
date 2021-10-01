@@ -5,15 +5,7 @@ import { isLogin } from "./utils/helpers";
 
 const App = () => (
   <Router>
-    {isLogin() ? (
-      <Route path="/">
-        <Main />
-      </Route>
-    ) : (
-      <Route path="/login">
-        <Login />
-      </Route>
-    )}
+    <Route path="/">{isLogin() ? <Main /> : <Login />}</Route>
   </Router>
 );
 
