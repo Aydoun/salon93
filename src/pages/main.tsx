@@ -46,9 +46,6 @@ const Main = () => {
               <Menu.Item icon={<SnippetsOutlined />} key="4">
                 <Link to="/tax">Tax</Link>
               </Menu.Item>
-              <Menu.Item icon={<SolutionOutlined />} key="5">
-                <Link to="/presence">Presence</Link>
-              </Menu.Item>
               <Menu.Item icon={<SettingOutlined />} key="6">
                 Management
               </Menu.Item>

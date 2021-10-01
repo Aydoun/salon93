@@ -7,6 +7,7 @@ import {
   Table,
   Statistic,
   Card,
+  Button,
 } from "antd";
 // import { Link } from "react-router-dom";
 import { getIncomeAction } from "../redux/action/sessions";
@@ -14,8 +15,10 @@ import {
   EuroCircleOutlined,
   CreditCardOutlined,
   AuditOutlined,
+  PrinterOutlined,
 } from "@ant-design/icons";
 import { formatDate } from "src/utils/helpers";
+import moment from "moment";
 const { Title } = Typography;
 
 const columns = [
@@ -83,14 +86,16 @@ const mainColumns = [
 
 function Income() {
   const { data: income, mainData, groupped } = getIncomeAction();
-  const cashMoney = income.filter((item) => item.paymentMethod === "cash");
-  const pinMoney = income.filter((item) => item.paymentMethod === "pin");
+
   const dayTotal = income.reduce((acc, cur) => acc + cur.total, 0);
-  const cashTotal = cashMoney.reduce((acc, cur) => acc + cur.total, 0);
-  const pinTotal = pinMoney.reduce((acc, cur) => acc + cur.total, 0);
-  // const activeSessions = sessions.filter((item) => !item.endTime);
-  // const finishedSessions = sessions.filter((item) => item.endTime);
-  // console.log("mainData :>> ", mainData);
+  const cashTotal = income.reduce(
+    (acc, cur) => (cur.paymentMethod === "cash" ? acc + cur.total : acc),
+    0
+  );
+  const pinTotal = income.reduce(
+    (acc, cur) => (cur.paymentMethod === "pin" ? acc + cur.total : acc),
+    0
+  );
 
   const expandedRowRender = ({ name }: any) => {
     const rowData = groupped[name];
@@ -141,9 +146,18 @@ function Income() {
 
   return (
     <>
-      <Row>
+      <Row justify="space-between">
         <Col span={4}>
-          <DatePicker />
+          <DatePicker defaultValue={moment()} />
+        </Col>
+        <Col span={4}>
+          <Button
+            style={{ float: "right" }}
+            icon={<PrinterOutlined />}
+            type="primary"
+          >
+            Print
+          </Button>
         </Col>
       </Row>
       <Title className="top-margin" level={3}>

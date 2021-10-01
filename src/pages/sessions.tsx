@@ -10,6 +10,7 @@ import {
   DatePicker,
   Modal,
   Avatar,
+  Table,
 } from "antd";
 import { Link } from "react-router-dom";
 import { getSessionsAction } from "../redux/action/sessions";
@@ -24,14 +25,53 @@ import { useMemo, useRef, useState } from "react";
 const { Meta } = Card;
 const { Text, Title } = Typography;
 
+const columns = [
+  {
+    title: "Name",
+    dataIndex: "workerName",
+    key: "name",
+    render: (text: string, record: any) => (
+      <>
+        <Avatar src={record.avatar} />
+        <Text className="left-margin">{text}</Text>
+      </>
+    ),
+  },
+  {
+    title: "Start Time",
+    dataIndex: "createdAt",
+    key: "st",
+    render: (text: any) => formatDate(text),
+  },
+  {
+    title: "End Time",
+    dataIndex: "endTime",
+    key: "et",
+    render: (text: any) => formatDate(text),
+  },
+  {
+    title: "Room",
+    dataIndex: "roomNumber",
+    key: "rn",
+  },
+  {
+    title: "Payment Method",
+    dataIndex: "paymentMethod",
+    key: "pm",
+  },
+  {
+    title: "Action",
+    key: "action",
+    render: () => <a>view session</a>,
+  },
+];
+
 function Sessions() {
   const [modalOpen, setModalOpen] = useState(false);
   const selectedSession = useRef<any>();
   const sessions = useMemo(getSessionsAction, []);
   const activeSessions = sessions.filter((item) => !item.endTime);
   const finishedSessions = sessions.filter((item) => item.endTime);
-
-  console.log("sessions :>> ", sessions);
 
   const renderStatus = (
     startDate: string,
@@ -81,7 +121,7 @@ function Sessions() {
           <DatePicker />
         </Col>
         <Col span={4}>
-          <Link to="/sessions/open">
+          <Link style={{ float: "right" }} to="/sessions/open">
             <Button type="primary">Open new Session</Button>
           </Link>
         </Col>
@@ -122,33 +162,7 @@ function Sessions() {
       <Title className="top-margin" level={3}>
         Finished Sessions ({finishedSessions.length})
       </Title>
-      <Row gutter={8}>
-        {finishedSessions.map((session: any) => (
-          <Col key={session.id} className="bottom-margin" span={8}>
-            <Card
-              actions={[
-                <EyeOutlined
-                  onClick={() => {
-                    selectedSession.current = session;
-                    setModalOpen(true);
-                  }}
-                  key="view"
-                />,
-              ]}
-            >
-              <Meta
-                avatar={<Avatar src={session.avatar} />}
-                title={session.workerName}
-                description={renderStatus(
-                  session.createdAt,
-                  session.endTime,
-                  session.roomNumber
-                )}
-              />
-            </Card>
-          </Col>
-        ))}
-      </Row>
+      <Table columns={columns} dataSource={finishedSessions} />
       <Modal
         title="Session Details"
         visible={modalOpen}
